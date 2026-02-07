@@ -27,7 +27,7 @@ export const TechAssistant: React.FC<TechAssistantProps> = ({ activateUrgent, on
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Oi! 👋 Eu sou o consultor digital da Rocha.\n\nMe conta: o que você está buscando hoje pra sua empresa?'
+      content: 'Olá! 👋\nQuero entender sua necessidade e te ajudar a encontrar a melhor solução.\n\nO que você está buscando hoje?'
     }
   ]);
   const [input, setInput] = useState('');
@@ -148,11 +148,11 @@ export const TechAssistant: React.FC<TechAssistantProps> = ({ activateUrgent, on
       <div className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col min-h-[600px] max-h-[750px]">
         {/* Header */}
         <div className="bg-slate-900 p-6 flex items-center justify-between relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-emerald-900/20 to-transparent pointer-events-none"></div>
           <div className="flex items-center gap-4 relative z-10">
-            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white relative shadow-lg shadow-blue-900/50">
+            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center text-white relative shadow-lg shadow-emerald-900/20">
               <Bot size={24} />
-              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-[3px] border-slate-900 rounded-full"></div>
+              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-white border-[3px] border-slate-900 rounded-full"></div>
             </div>
             <div>
               <h3 className="text-white font-bold text-lg tracking-tight">Consultor Digital</h3>
@@ -308,12 +308,12 @@ export const TechAssistant: React.FC<TechAssistantProps> = ({ activateUrgent, on
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSendMessage(input)}
-              placeholder="Digite sua dúvida tecnológica aqui..."
-              className="flex-1 bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm"
+              placeholder="Ex: preciso organizar a TI da empresa, criar um site, automatizar processos, resolver um problema técnico ou entender como usar IA…"
+              className="flex-1 bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all text-sm"
             />
             <button
               onClick={() => handleSendMessage(input)}
-              className="bg-blue-600 text-white p-4 rounded-2xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95"
+              className="bg-emerald-600 text-white p-4 rounded-2xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-500/20 active:scale-95"
             >
               <Send size={20} />
             </button>

@@ -63,29 +63,30 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
 
   return (
     <div className="animate-in fade-in duration-700 bg-white">
-      {/* 1. HERO - CLAREZA TOTAL */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-24 overflow-hidden mesh-gradient">
-        <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-8 leading-[1.1]">
-            Tecnologia completa para<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">diferentes necessidades.</span>
+      {/* 1. HERO - CHAT FIRST EXPERIENCE */}
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50">
+        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-slate-50"></div>
+
+        <div className="max-w-6xl mx-auto px-6 relative z-10 text-center mb-12">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
+            Integradora de Tecnologia
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-[1.1]">
+            Descreva o que você precisa<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600">nós te orientamos.</span>
           </h1>
-          <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Suporte, desenvolvimento, automação, infraestrutura e inteligência artificial — organizados para você escolher o que precisa hoje.
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Conte o que está buscando e indicamos o melhor caminho.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <Button variant="outline" size="lg" onClick={() => document.getElementById('service-hub')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explorar soluções
-            </Button>
-            <Button size="lg" onClick={() => document.getElementById('chat-inteligente')?.scrollIntoView({ behavior: 'smooth' })}>
-              Descrever minha necessidade
-            </Button>
-          </div>
+        </div>
+
+        <div className="relative z-20">
+          <TechAssistant />
         </div>
       </section>
 
-      {/* 2. HUB DE SERVIÇOS & IDENTIFICAÇÃO */}
-      <div id="service-hub">
+      {/* 2. HUB DE SERVIÇOS (PILARES) */}
+      <div id="service-hub" className="-mt-12 relative z-10">
         <ServiceHub setView={setView} />
       </div>
 
@@ -104,18 +105,7 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
         </div>
       </section >
 
-      {/* 6. CHAT CENTRAL */}
-      < section className="py-24 bg-white" >
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-slate-900 mb-4">Descreva sua necessidade e indicamos o melhor caminho.</h2>
-            <p className="text-slate-500">Nosso consultor digital está pronto para analisar seu caso.</p>
-          </div>
-          <div id="chat-inteligente">
-            <TechAssistant activateUrgent={triggerUrgent} onUrgentOpened={() => setTriggerUrgent(false)} />
-          </div>
-        </div>
-      </section >
+      {/* 6. CHAT REMOVIDO (JÁ ESTÁ NO TOPO) */}
 
       {/* URGENT CTA FIXED */}
       < div className="fixed bottom-6 right-6 z-40 hidden md:block" >

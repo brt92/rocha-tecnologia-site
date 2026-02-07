@@ -76,7 +76,8 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
         <section className="py-12 bg-white">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* 1. POR ONDE COMEÇAR */}
+                {/* 1. POR ONDE COMEÇAR (Intro - Removido para Home Chat-First) */}
+                {/* 
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Escolha por onde começar.</h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -84,6 +85,7 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
                         Selecione a que mais se aproxima do que você busca hoje.
                     </p>
                 </div>
+                */}
 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-24">
                     {services.map((service) => (
