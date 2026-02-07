@@ -1,0 +1,8 @@
+{
+  "name": "Rocha Soluções em Tecnologia",
+  "description": "Plataforma premium de serviços de TI e soluções tecnológicas para empresas com foco em gestão, segurança e inovação.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
