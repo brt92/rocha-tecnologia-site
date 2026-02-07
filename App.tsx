@@ -31,6 +31,7 @@ import {
 } from 'lucide-react';
 
 import { ServicesPillarsAccordion } from './components/home/ServicesPillarsAccordion';
+import { ServiceHub } from './components/home/ServiceHub';
 
 // --- SHARED COMPONENTS ---
 const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: string, title: string, subtitle: string, centered?: boolean }) => (
@@ -66,86 +67,24 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-24 overflow-hidden mesh-gradient">
         <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-8 leading-[1.1]">
-            Tecnologia aplicada para resolver <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">problemas reais de empresas e pessoas.</span>
+            Tecnologia para diferentes<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">necessidades, empresas e momentos.</span>
           </h1>
           <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Suporte, desenvolvimento, automação, infraestrutura e inteligência artificial — organizados de forma prática para cada necessidade.
+            Suporte, desenvolvimento, infraestrutura, automação e inteligência artificial — organizados para você escolher o que precisa hoje.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <Button size="lg" onClick={() => document.getElementById('chat-inteligente')?.scrollIntoView({ behavior: 'smooth' })}>
-              Quero entender o que minha empresa precisa
+            <Button size="lg" onClick={() => document.getElementById('service-hub')?.scrollIntoView({ behavior: 'smooth' })}>
+              Começar agora
             </Button>
-            <Button variant="outline" size="lg" onClick={() => document.getElementById('pilar-question')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explorar soluções
-            </Button>
-          </div>
-
-          <div className="mt-16 w-full max-w-[1400px] mx-auto text-left">
-            <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center md:text-left pl-2">
-              Explore nossas soluções
-            </p>
-            <ServicesPillarsAccordion setView={setView} />
           </div>
         </div>
       </section>
 
-
-
-      {/* 3. PARA QUEM É (PERSONAS) */}
-      < section className="py-24 bg-slate-50 border-y border-slate-100" >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-black text-slate-900">Tecnologia para diferentes momentos</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: <Briefcase />, title: "Empresa", text: "Preciso organizar minha TI e ter suporte rápido." },
-              { icon: <TrendingUp />, title: "Crescimento", text: "Quero vender mais e digitalizar minha operação." },
-              { icon: <Store />, title: "Comércio", text: "Preciso estruturar loja, PDV e automação." },
-              { icon: <Home />, title: "Residencial", text: "Preciso de suporte técnico ou Wi-Fi em casa." },
-              { icon: <Bot />, title: "Inovação", text: "Quero explorar IA e reduzir custos." },
-              { icon: <Code />, title: "Software", text: "Preciso de um site ou sistema sob medida." }
-            ].map((item, i) => (
-              <div key={i} className="p-8 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 transition-colors group">
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4 text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  {item.icon}
-                </div>
-                <h3 className="font-bold text-lg mb-2 text-slate-900">{item.title}</h3>
-                <p className="text-sm text-slate-500">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section >
-
-      {/* 4. COMO AJUDAMOS (SITUAÇÃO -> SOLUÇÃO) */}
-      < section className="py-24 bg-white" >
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8">Nós resolvemos problemas.</h2>
-              <p className="text-lg text-slate-600 mb-8">Entendemos o cenário e indicamos a solução certa, sem "empurrar" serviços desnecessários.</p>
-              <Button variant="outline" size="lg" onClick={() => setView('cases')}>Ver Cases de Sucesso</Button>
-            </div>
-            <div className="space-y-4">
-              {[
-                { from: "Empresa desorganizada", to: "Gestão Profissional de TI" },
-                { from: "Sem presença digital", to: "Sites e Sistemas Modernos" },
-                { from: "Processos manuais lentos", to: "Automação e IA" },
-                { from: "Wi-Fi e Rede instável", to: "Projetos de Infraestrutura" },
-                { from: "Dúvidas sobre o futuro", to: "Consultoria Estratégica" }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-slate-500 font-medium text-sm">{item.from}</span>
-                  <ArrowRight size={16} className="text-slate-300" />
-                  <span className="text-blue-600 font-bold text-sm text-right">{item.to}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section >
+      {/* 2. HUB DE SERVIÇOS & IDENTIFICAÇÃO */}
+      <div id="service-hub">
+        <ServiceHub setView={setView} />
+      </div>
 
       {/* 5. DIFERENCIAL & AUTHORITY */}
       < section className="py-20 bg-slate-900 text-white" >
@@ -166,7 +105,7 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
       < section className="py-24 bg-white" >
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-slate-900 mb-4">Descreva sua situação e vamos te orientar.</h2>
+            <h2 className="text-3xl font-black text-slate-900 mb-4">Descreva sua situação e indicamos o melhor caminho.</h2>
             <p className="text-slate-500">Nosso consultor digital está pronto para analisar seu caso.</p>
           </div>
           <div id="chat-inteligente">
