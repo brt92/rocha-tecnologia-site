@@ -78,10 +78,10 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
 
                 {/* 1. POR ONDE COMEÇAR */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Por onde você quer começar?</h2>
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Escolha por onde começar.</h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        Somos uma empresa que atua em diversas áreas da tecnologia. <br />
-                        Selecione a que mais se aproxima do que você busca.
+                        Somos uma integradora de tecnologia e atuamos em várias frentes. <br />
+                        Selecione a que mais se aproxima do que você busca hoje.
                     </p>
                 </div>
 
@@ -93,10 +93,10 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
                             onClick={() => handleServiceClick(service.id)}
                         >
                             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors ${service.color === 'blue' ? 'bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white' :
-                                    service.color === 'indigo' ? 'bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white' :
-                                        service.color === 'slate' ? 'bg-slate-200 text-slate-700 group-hover:bg-slate-800 group-hover:text-white' :
-                                            service.color === 'amber' ? 'bg-amber-100 text-amber-600 group-hover:bg-amber-500 group-hover:text-white' :
-                                                'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
+                                service.color === 'indigo' ? 'bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white' :
+                                    service.color === 'slate' ? 'bg-slate-200 text-slate-700 group-hover:bg-slate-800 group-hover:text-white' :
+                                        service.color === 'amber' ? 'bg-amber-100 text-amber-600 group-hover:bg-amber-500 group-hover:text-white' :
+                                            'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white'
                                 }`}>
                                 {service.icon}
                             </div>
@@ -116,13 +116,13 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
 
                     <div className="relative z-10">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-black mb-6">O que você precisa resolver hoje?</h2>
+                            <h2 className="text-3xl md:text-4xl font-black mb-6">Qual dessas situações parece com a sua?</h2>
                             <p className="text-slate-400">Identifique sua situação atual e veja como podemos ajudar.</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {[
-                                { title: 'Empresa Desorganizada', icon: <Briefcase />, action: () => setView('it-cyber') },
+                                { title: 'Empresa sem estrutura tecnológica', icon: <Briefcase />, action: () => setView('it-cyber') },
                                 { title: 'Preciso criar um site', icon: <MonitorPlay />, action: () => setView('dev-auto') },
                                 { title: 'Processos manuais', icon: <TrendingUp />, action: () => setView('dev-auto') }, // Or AI
                                 { title: 'Problemas técnicos', icon: <AlertTriangle />, action: () => setView('support') },
@@ -145,12 +145,13 @@ export const ServiceHub: React.FC<ServiceHubProps> = ({ setView }) => {
 
                 {/* 3. BLOCO EXPLICATIVO */}
                 <div className="py-24 text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Atendemos desde demandas pontuais até projetos completos.</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Atendemos desde suporte técnico pontual até projetos completos de tecnologia.</h2>
 
-                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 max-w-5xl mx-auto">
                         {[
                             { label: 'Empresas', icon: <Briefcase size={20} /> },
                             { label: 'Comércios', icon: <Store size={20} /> },
+                            { label: 'Indústrias', icon: <Store size={20} /> }, // Using Store icon for Industries for now as Lucide doesn't have Factory in this list import
                             { label: 'Profissionais', icon: <Code size={20} /> },
                             { label: 'Residências', icon: <Home size={20} /> }
                         ].map((audience, i) => (
