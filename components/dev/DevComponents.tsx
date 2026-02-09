@@ -1,8 +1,8 @@
 
 import React from 'react';
 /* Added AlertTriangle to imports to fix the missing component error */
-import { 
-  CheckCircle2, ArrowRight, Layers, MessageSquare, Database, Workflow, 
+import {
+  CheckCircle2, ArrowRight, Layers, MessageSquare, Database, Workflow,
   Globe, Layout, Laptop, ShieldCheck, Zap, Search, Target, TrendingUp,
   Cpu, Rocket, Settings, Users, Monitor, Smartphone, Code, AlertTriangle
 } from 'lucide-react';
@@ -100,25 +100,25 @@ export const DevelopmentProcess = () => {
 
 export const ImpactScenarios = () => {
   const scenarios = [
-    { 
-      p: 'Empresa sem Site ou antigo', 
-      s: 'A perda de credibilidade digital trava novos fechamentos.', 
-      r: 'Desenvolvemos um portal moderno que transmite autoridade imediata.' 
+    {
+      p: 'Empresa sem Site ou antigo',
+      s: 'A perda de credibilidade digital trava novos fechamentos.',
+      r: 'Desenvolvemos um portal moderno que transmite autoridade imediata.'
     },
-    { 
-      p: 'Dependência do Instagram', 
-      s: 'Algoritmo instável e falta de controle sobre os dados dos leads.', 
-      r: 'Criamos sua "casa própria" digital com captação direta de e-mails e WhatsApp.' 
+    {
+      p: 'Dependência do Instagram',
+      s: 'Algoritmo instável e falta de controle sobre os dados dos leads.',
+      r: 'Criamos sua "casa própria" digital com captação direta de e-mails e WhatsApp.'
     },
-    { 
-      p: 'Baixa Conversão de Leads', 
-      s: 'Usuários entram mas não interagem com a marca.', 
-      r: 'Landing Pages otimizadas com gatilhos mentais e UX orientado à venda.' 
+    {
+      p: 'Baixa Conversão de Leads',
+      s: 'Usuários entram mas não interagem com a marca.',
+      r: 'Landing Pages otimizadas com gatilhos mentais e UX orientado à venda.'
     },
-    { 
-      p: 'Desorganização de Contatos', 
-      s: 'Leads chegam de várias fontes e se perdem no caminho.', 
-      r: 'Integramos o site com seu CRM para fluxo automático de atendimento.' 
+    {
+      p: 'Desorganização de Contatos',
+      s: 'Leads chegam de várias fontes e se perdem no caminho.',
+      r: 'Integramos o site com seu CRM para fluxo automático de atendimento.'
     }
   ];
 
@@ -161,7 +161,7 @@ export const TechStackBadges = ({ stack }: { stack: string[] }) => (
   </div>
 );
 
-export const CaseStudyHighlight = ({ item }: { item: any }) => (
+export const CaseStudyHighlight: React.FC<{ item: any }> = ({ item }) => (
   <div className="group relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 hover:border-blue-500 transition-all duration-500 shadow-sm hover:shadow-2xl">
     <div className="aspect-video overflow-hidden">
       <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />

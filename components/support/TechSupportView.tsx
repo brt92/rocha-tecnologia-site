@@ -10,26 +10,48 @@ export const TechSupportView = ({ setView }: { setView: (v: string) => void }) =
     return (
         <div className="animate-in slide-in-from-bottom-4 duration-700 bg-white">
             {/* 1. HERO SECTION */}
+            {/* 1. HERO SECTION */}
             <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-600/10 blur-[150px] rounded-full"></div>
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl">
-                        <span className="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-                            Assistência Técnica em Tecnologia
-                        </span>
-                        <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
-                            Assistência técnica em tecnologia para <span className="text-emerald-500">empresas e residências.</span>
-                        </h1>
-                        <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
-                            Manutenção, instalação e suporte técnico para manter tudo funcionando com segurança e eficiência.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 border-none icon-pulse" onClick={() => setView('contato')}>
-                                Preciso de suporte
-                            </Button>
-                            <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('atendimento')?.scrollIntoView({ behavior: 'smooth' })}>
-                                Solicitar atendimento
-                            </Button>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span className="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                                Assistência Técnica em Tecnologia
+                            </span>
+                            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
+                                Assistência técnica em tecnologia para <span className="text-emerald-500">empresas e residências.</span>
+                            </h1>
+                            <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
+                                Manutenção, instalação e suporte técnico para manter tudo funcionando com segurança e eficiência.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 border-none icon-pulse" onClick={() => setView('contato')}>
+                                    Preciso de suporte
+                                </Button>
+                                <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('atendimento')?.scrollIntoView({ behavior: 'smooth' })}>
+                                    Solicitar atendimento
+                                </Button>
+                            </div>
+                        </div>
+                        <div className="relative hidden lg:block">
+                            <div className="absolute inset-0 bg-blue-500/20 blur-3xl -z-10 rounded-full"></div>
+                            <img
+                                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+                                alt="Technical Support"
+                                className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
+                            />
+                            <div className="absolute top-1/2 -right-6 -translate-y-1/2 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl z-20">
+                                <div className="flex items-center gap-3">
+                                    <div className="bg-emerald-500/20 p-2 rounded-lg">
+                                        <Wrench className="text-emerald-400" size={20} />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs font-bold text-slate-400 uppercase">Status</p>
+                                        <p className="text-sm font-bold text-white">Online & Ready</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
