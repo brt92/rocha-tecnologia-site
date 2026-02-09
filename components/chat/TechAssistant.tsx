@@ -37,7 +37,7 @@ export const TechAssistant: React.FC<TechAssistantProps> = ({ chat, mode = 'hero
   const handleSendMessage = (text: string) => sendMessage(text);
 
   const containerClasses = mode === 'hero'
-    ? "w-full max-w-3xl mx-auto mb-20 px-4"
+    ? "w-full"
     : "h-full flex flex-col pointer-events-auto";
 
   const cardClasses = mode === 'hero'

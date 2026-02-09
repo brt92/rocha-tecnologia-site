@@ -89,8 +89,48 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
           </p>
         </div>
 
-        <div className="relative z-20">
-          <TechAssistant chat={chatState} mode="hero" />
+        <div className="relative z-20 max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Chat Component */}
+            <div className="lg:col-span-7">
+              <TechAssistant chat={chatState} mode="hero" />
+            </div>
+
+            {/* CTA Illustration */}
+            <div className="lg:col-span-5 hidden lg:flex flex-col items-center justify-center space-y-6 p-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 blur-3xl rounded-full"></div>
+                <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                      <MessageCircle size={40} />
+                    </div>
+                    <h3 className="text-2xl font-black text-slate-900">Converse com nosso Consultor Digital</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Descreva sua necessidade e receba orientação personalizada em tempo real.
+                    </p>
+                    <div className="flex flex-col gap-3 w-full pt-4">
+                      <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                        <CheckCircle2 className="text-emerald-600 shrink-0" size={20} />
+                        <span className="text-sm font-medium text-slate-700">Respostas instantâneas</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                        <CheckCircle2 className="text-blue-600 shrink-0" size={20} />
+                        <span className="text-sm font-medium text-slate-700">Orientação especializada</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-xl border border-purple-100">
+                        <CheckCircle2 className="text-purple-600 shrink-0" size={20} />
+                        <span className="text-sm font-medium text-slate-700">100% gratuito</span>
+                      </div>
+                    </div>
+                    <div className="pt-4 animate-bounce">
+                      <ArrowRight className="text-emerald-600 rotate-180" size={32} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
