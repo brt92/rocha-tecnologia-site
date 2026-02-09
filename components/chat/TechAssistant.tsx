@@ -37,11 +37,11 @@ export const TechAssistant: React.FC<TechAssistantProps> = ({ chat, mode = 'hero
   const handleSendMessage = (text: string) => sendMessage(text);
 
   const containerClasses = mode === 'hero'
-    ? "w-full max-w-5xl mx-auto mb-20 px-4"
+    ? "w-full max-w-3xl mx-auto mb-20 px-4"
     : "h-full flex flex-col pointer-events-auto";
 
   const cardClasses = mode === 'hero'
-    ? "bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col min-h-[600px] max-h-[750px]"
+    ? "bg-white rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col min-h-[400px] max-h-[500px]"
     : "bg-white h-full flex flex-col shadow-2xl";
 
   return (
