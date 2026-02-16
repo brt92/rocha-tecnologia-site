@@ -4,6 +4,7 @@ import {
     ArrowRight, CheckCircle, Terminal, Code, Cpu
 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { motion } from 'framer-motion';
 import {
     EngineeringHeroPreview,
     SystemsGrid,
@@ -25,12 +26,6 @@ const EngineeringSectionHeading = ({ badge, title, subtitle, centered = false }:
         </p>
     </div>
 );
-
-export const SoftwareAutomationView = ({ setView }: { setView: (v: string) => void }) => (
-// ... imports
-import { motion } from 'framer-motion';
-
-// ... EngineeringSectionHeading component
 
 export const SoftwareAutomationView = ({ setView }: { setView: (v: string) => void }) => (
     <div className="bg-white overflow-hidden">
