@@ -43,7 +43,8 @@ export const FadeInSection: React.FC<FadeInSectionProps> = ({
     }, [threshold]);
 
     const getTransform = () => {
-        if (!isVisible && direction === 'up') return `translateY(${MOTION.OFFSET.MEDIUM}px)`;
+        // Increase distance: MOTION.OFFSET.MEDIUM * 2
+        if (!isVisible && direction === 'up') return `translateY(${MOTION.OFFSET.MEDIUM * 2}px)`;
         return 'none';
     };
 
@@ -54,7 +55,8 @@ export const FadeInSection: React.FC<FadeInSectionProps> = ({
             style={{
                 opacity: isVisible ? 1 : 0,
                 transform: getTransform(),
-                transition: `opacity ${MOTION.DURATION.SLOW}ms ${MOTION.EASE.OUT} ${delay}ms, transform ${MOTION.DURATION.SLOW}ms ${MOTION.EASE.OUT} ${delay}ms`,
+                // Increase duration: 1000ms (1.0s)
+                transition: `opacity 1000ms ${MOTION.EASE.OUT} ${delay}ms, transform 1000ms ${MOTION.EASE.OUT} ${delay}ms`,
                 willChange: 'opacity, transform'
             }}
         >

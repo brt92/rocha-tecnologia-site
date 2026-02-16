@@ -45,7 +45,7 @@ export const GlowHero: React.FC<GlowHeroProps> = ({
             className={cn("relative overflow-hidden group", className)}
         >
             <motion.div
-                className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-500 motion-disabled-on-reduce"
+                className="pointer-events-none absolute -inset-px opacity-50 group-hover:opacity-100 transition duration-500"
                 style={{ background }}
             />
             <div className="relative z-10">

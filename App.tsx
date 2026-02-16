@@ -80,11 +80,11 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
   }, []);
 
   return (
-    <div className="animate-in fade-in duration-700 bg-white">
+    <div className="bg-white">
       {/* 1. HERO - CHAT FIRST EXPERIENCE */}
-      <GlowHero className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50" glowColor="rgba(16, 185, 129, 0.1)">
+      <GlowHero className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50" glowColor="rgba(16, 185, 129, 0.4)">
         <section id="hero-chat-section">
-          <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-slate-50"></div>
+          {/* REMOVED OBSCURING OVERLAY */}
 
           <div className="max-w-6xl mx-auto px-6 relative z-10 text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
