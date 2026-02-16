@@ -3,7 +3,7 @@ import React from 'react';
 import {
     Database, Server, Workflow, Cpu, Code,
     Layers, Lock, Globe, Terminal, Network,
-    ArrowRight, Activity, Zap, CheckCircle
+    Settings, BarChart, ArrowRight, Activity, Zap, CheckCircle, FileText
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
