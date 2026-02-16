@@ -35,6 +35,15 @@ import {
 
 import { ServicesPillarsAccordion } from './components/home/ServicesPillarsAccordion';
 import { ServiceHub } from './components/home/ServiceHub';
+import {
+  GlowHero,
+  ServicesAccordion5,
+  FadeInSection,
+  StaggerGrid,
+  ScrollProgressBar,
+  Tooltip,
+  MagneticButton
+} from './components/motion';
 
 // --- SHARED COMPONENTS ---
 const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: string, title: string, subtitle: string, centered?: boolean }) => (
@@ -73,78 +82,80 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
   return (
     <div className="animate-in fade-in duration-700 bg-white">
       {/* 1. HERO - CHAT FIRST EXPERIENCE */}
-      <section id="hero-chat-section" className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50">
-        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-slate-50"></div>
+      <GlowHero className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50" glowColor="rgba(16, 185, 129, 0.1)">
+        <section id="hero-chat-section">
+          <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-slate-50"></div>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10 text-center mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
-            Integradora de Tecnologia
-          </span>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-[1.1]">
-            Descreva sua necessidade<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600">e te orientamos.</span>
-          </h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Somos uma integradora de tecnologia. Conte o que você busca e indicamos o melhor caminho.
-          </p>
-        </div>
+          <div className="max-w-6xl mx-auto px-6 relative z-10 text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
+              Integradora de Tecnologia
+            </span>
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-[1.1]">
+              Descreva sua necessidade<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600">e te orientamos.</span>
+            </h1>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              Somos uma integradora de tecnologia. Conte o que você busca e indicamos o melhor caminho.
+            </p>
+          </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Chat Component */}
-            <div className="lg:col-span-7">
-              <TechAssistant chat={chatState} mode="hero" />
-            </div>
+          <div className="relative z-20 max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Chat Component */}
+              <div className="lg:col-span-7">
+                <TechAssistant chat={chatState} mode="hero" />
+              </div>
 
-            {/* CTA Illustration */}
-            <div className="lg:col-span-5 hidden lg:flex flex-col items-center justify-center space-y-6 p-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 blur-3xl rounded-full"></div>
-                <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                      <MessageCircle size={40} />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Converse com nosso Consultor Digital</h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      Descreva sua necessidade e receba orientação personalizada em tempo real.
-                    </p>
-                    <div className="flex flex-col gap-3 w-full pt-4">
-                      <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
-                        <CheckCircle2 className="text-emerald-600 shrink-0" size={20} />
-                        <span className="text-sm font-medium text-slate-700">Respostas instantâneas</span>
+              {/* CTA Illustration */}
+              <div className="lg:col-span-5 hidden lg:flex flex-col items-center justify-center space-y-6 p-8">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 blur-3xl rounded-full"></div>
+                  <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                        <MessageCircle size={40} />
                       </div>
-                      <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
-                        <CheckCircle2 className="text-blue-600 shrink-0" size={20} />
-                        <span className="text-sm font-medium text-slate-700">Orientação especializada</span>
+                      <h3 className="text-2xl font-black text-slate-900">Converse com nosso Consultor Digital</h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Descreva sua necessidade e receba orientação personalizada em tempo real.
+                      </p>
+                      <div className="flex flex-col gap-3 w-full pt-4">
+                        <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                          <CheckCircle2 className="text-emerald-600 shrink-0" size={20} />
+                          <span className="text-sm font-medium text-slate-700">Respostas instantâneas</span>
+                        </div>
+                        <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                          <CheckCircle2 className="text-blue-600 shrink-0" size={20} />
+                          <span className="text-sm font-medium text-slate-700">Orientação especializada</span>
+                        </div>
+                        <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-xl border border-purple-100">
+                          <CheckCircle2 className="text-purple-600 shrink-0" size={20} />
+                          <span className="text-sm font-medium text-slate-700">100% gratuito</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-xl border border-purple-100">
-                        <CheckCircle2 className="text-purple-600 shrink-0" size={20} />
-                        <span className="text-sm font-medium text-slate-700">100% gratuito</span>
+                      <div className="pt-4 animate-bounce">
+                        <ArrowRight className="text-emerald-600 rotate-180" size={32} />
                       </div>
-                    </div>
-                    <div className="pt-4 animate-bounce">
-                      <ArrowRight className="text-emerald-600 rotate-180" size={32} />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </GlowHero>
 
       {/* FIXED CHAT & SIDEBAR */}
       <FixedChat chat={chatState} visible={showFixedChat && !chatState.isOpen} />
       <ChatSidebar chat={chatState} />
 
       {/* 2. HUB DE SERVIÇOS (PILARES) */}
-      <div id="service-hub" className="-mt-12 relative z-10">
-        <ServiceHub setView={setView} />
-      </div>
+      <FadeInSection id="service-hub" className="-mt-12 relative z-10" delay={200}>
+        <ServicesAccordion5 onSelectCallback={setView} />
+      </FadeInSection>
 
       {/* 5. DIFERENCIAL & AUTHORITY */}
-      < section className="py-20 bg-slate-900 text-white" >
+      <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Não oferecemos serviços isolados.</h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-16">
@@ -156,9 +167,9 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
             ))}
           </div>
         </div>
-      </section >
+      </section>
 
-    </div >
+    </div>
   );
 };
 
@@ -167,7 +178,7 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
 const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
   const itModules = [
     { id: '01', title: 'Gestão de Servidores', desc: 'Active Directory, GPOs e permissionamento granular de arquivos.', icon: <Server size={20} />, color: 'blue' },
-    { id: '02', title: 'Proteção de Rede', desc: 'Firewall NGFW, WebFilter, IPS/IDS e VPN segura para acesso remoto.', icon: <ShieldAlert size={20} />, color: 'red' },
+    { id: '02', title: 'Proteção de Rede', desc: <><Tooltip term="Firewall NGFW" definition="Next-Generation Firewall: Proteção avançada com inspeção de pacotes e controle de aplicações." />, WebFilter, <Tooltip term="IPS/IDS" definition="Intrusion Prevention/Detection System: Monitoramento ativo contra invasões em tempo real." /> e VPN segura para acesso remoto.</>, icon: <ShieldAlert size={20} />, color: 'red' },
     { id: '03', title: 'Infra de Rede', desc: 'Switches gerenciados, segmentação por VLAN e Wi-Fi de alta densidade.', icon: <Network size={20} />, color: 'indigo' },
     { id: '04', title: 'Gestão de Ativos', desc: 'Inventário, preventiva e onboarding/offboarding seguro de hardware.', icon: <Binary size={20} />, color: 'slate' },
     { id: '05', title: 'Backup & Continuidade', desc: 'Estratégia 3-2-1 com monitoramento diário e teste de restore.', icon: <HardDrive size={20} />, color: 'green' },
@@ -191,75 +202,79 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-700 bg-white">
       {/* Hero */}
-      <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[150px] rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-                Managed IT Services & Cyber Intelligence
-              </span>
-              <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
-                Gestão Contínua e <br />
-                <span className="text-blue-500">Operação Completa de T.I.</span>
-              </h1>
-              <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
-                Atuamos como um departamento de TI terceirizado completo através do <strong>Rocha IT Operating Model</strong>: uma metodologia modular desenhada para empresas que exigem 100% de disponibilidade.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" onClick={() => setView('contato')}>Solicitar Orçamento Estratégico</Button>
-                <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('framework')?.scrollIntoView({ behavior: 'smooth' })}>Ver Framework de Gestão</Button>
+      <GlowHero>
+        <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[150px] rounded-full"></div>
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                  Managed IT Services & Cyber Intelligence
+                </span>
+                <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
+                  Gestão Contínua e <br />
+                  <span className="text-blue-500">Operação Completa de T.I.</span>
+                </h1>
+                <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
+                  Atuamos como um departamento de TI terceirizado completo através do <strong>Rocha IT Operating Model</strong>: uma metodologia modular desenhada para empresas que exigem 100% de disponibilidade.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <MagneticButton><Button size="lg" onClick={() => setView('contato')}>Solicitar Orçamento Estratégico</Button></MagneticButton>
+                  <MagneticButton><Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('framework')?.scrollIntoView({ behavior: 'smooth' })}>Ver Framework de Gestão</Button></MagneticButton>
+                </div>
               </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-blue-500/20 blur-3xl -z-10 rounded-full"></div>
-              <img
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
-                alt="Cybersecurity Shield"
-                className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl z-20 flex items-center gap-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-mono text-blue-200">SYSTEM_STATUS: PROTECTED</span>
+              <div className="relative hidden lg:block">
+                <div className="absolute inset-0 bg-blue-500/20 blur-3xl -z-10 rounded-full"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                  alt="Cybersecurity Shield"
+                  className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl z-20 flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-xs font-mono text-blue-200">SYSTEM_STATUS: PROTECTED</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </GlowHero>
 
       {/* The 3 Pillars */}
-      <section id="pillars" className="py-24 border-b border-slate-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-2xl">
-              <span className="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Fundamentos da Operação</span>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Três pilares para uma infraestrutura inabalável.</h2>
+      <FadeInSection>
+        <section id="pillars" className="py-24 border-b border-slate-100 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+              <div className="max-w-2xl">
+                <span className="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Fundamentos da Operação</span>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Três pilares para uma infraestrutura inabalável.</h2>
+              </div>
+              <div className="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 border border-slate-800">
+                <BookOpen className="text-blue-500" />
+                <span className="text-sm font-bold">Metodologia Corporativa Rocha Tech</span>
+              </div>
             </div>
-            <div className="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 border border-slate-800">
-              <BookOpen className="text-blue-500" />
-              <span className="text-sm font-bold">Metodologia Corporativa Rocha Tech</span>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Cpu /></div>
-              <h3 className="text-xl font-bold mb-4">Infraestrutura</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">Gestão física e lógica dos componentes que sustentam a operação: servidores, rede e ativos de hardware.</p>
-            </div>
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><ShieldCheck /></div>
-              <h3 className="text-xl font-bold mb-4">Segurança</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">Blindagem multicamada dos dados e sistemas, garantindo conformidade legal e prevenção contra ataques cibernéticos.</p>
-            </div>
-            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Users /></div>
-              <h3 className="text-xl font-bold mb-4">Suporte & Gestão</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">Atendimento ágil aos usuários aliado à governança técnica e consultoria para expansão do negócio.</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Cpu /></div>
+                <h3 className="text-xl font-bold mb-4">Infraestrutura</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Gestão física e lógica dos componentes que sustentam a operação: servidores, rede e ativos de hardware.</p>
+              </div>
+              <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><ShieldCheck /></div>
+                <h3 className="text-xl font-bold mb-4">Segurança</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Blindagem multicamada dos dados e sistemas, garantindo conformidade legal e prevenção contra ataques cibernéticos.</p>
+              </div>
+              <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Users /></div>
+                <h3 className="text-xl font-bold mb-4">Suporte & Gestão</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">Atendimento ágil aos usuários aliado à governança técnica e consultoria para expansão do negócio.</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </FadeInSection>
 
       {/* The 8 Modules Refactored */}
       <section id="framework" className="py-24 bg-slate-50">
@@ -271,7 +286,7 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" columns={4}>
             {itModules.map((module) => (
               <div key={module.id} className="bg-white p-6 rounded-[2rem] border border-slate-200 hover:border-blue-500 transition-all group shadow-sm hover:shadow-xl">
                 <div className="flex justify-between items-start mb-4">
@@ -284,7 +299,7 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
                 <p className="text-[11px] text-slate-500 leading-relaxed mb-4">{module.desc}</p>
               </div>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -461,262 +476,198 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
 const DevAutoView = ({ setView }: { setView: (v: string) => void }) => (
   <div className="animate-in slide-in-from-bottom-4 duration-1000 bg-white">
     {/* Hero Section */}
-    {/* Hero Section */}
-    <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[150px] rounded-full"></div>
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-              Engineering & Strategic Design
-            </span>
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
-              Sites profissionais que representam sua empresa e geram <span className="text-blue-500">oportunidades reais.</span>
-            </h1>
-            <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
-              Desenvolvimento estratégico, performance absoluta, SEO técnico e integração profunda com automações e sistemas legados.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => setView('contato')}>Quero criar meu site</Button>
-              <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}>Explorar Soluções</Button>
-            </div>
-          </div>
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-indigo-500/20 blur-3xl -z-10 rounded-full"></div>
-            <img
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
-              alt="Coding & Development"
-              className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
-            />
-            <div className="absolute -top-6 -right-6 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl z-20">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+    <GlowHero>
+      <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[150px] rounded-full"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                Engineering & Strategic Design
+              </span>
+              <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
+                Sites profissionais que representam sua empresa e geram <span className="text-blue-500">oportunidades reais.</span>
+              </h1>
+              <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
+                Desenvolvimento estratégico, performance absoluta, SEO técnico e integração profunda com automações e sistemas legados.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" onClick={() => setView('contato')}>Quero criar meu site</Button>
+                <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}>Ver Processo</Button>
               </div>
-              <div className="space-y-1">
-                <div className="h-1 w-24 bg-slate-600 rounded"></div>
-                <div className="h-1 w-16 bg-slate-600 rounded"></div>
-                <div className="h-1 w-20 bg-blue-500/50 rounded"></div>
+            </div>
+            <div className="relative hidden lg:block">
+              <div className="border border-slate-700/50 bg-slate-800/50 rounded-3xl h-[400px] flex items-center justify-center">
+                <Layout className="text-slate-600" size={64} />
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </GlowHero>
 
-    {/* O Que Desenvolvemos */}
-    <section id="solutions" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          badge="Expertise Digital"
-          title="Soluções estruturadas para cada necessidade"
-          subtitle="Trabalhamos com projetos que vão além do design: construímos ativos digitais que trabalham pelo seu negócio 24/7."
-        />
-        <SiteSolutionsGrid />
-      </div>
-    </section>
+    {/* Diagnóstico da Presença Digital */}
+    <div className="py-24 bg-white text-center">
+      <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Diagnóstico da Presença Digital</h2>
+      <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">Entenda como sua empresa está posicionada online e descubra oportunidades de crescimento e automação.</p>
+    </div>
+    <div className="max-w-7xl mx-auto px-6 pb-24">
+      <DevDiagnosticQuiz />
+    </div>
 
-    {/* Diferencial Estratégico */}
-    <section className="py-24 bg-slate-50 border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <SectionHeading
-              badge="O Diferencial Rocha"
-              title="Não criamos apenas layouts, criamos Estrutura Digital."
-              subtitle="Um site bonito sem estratégia é apenas um cartão de visitas caro. Nossos projetos são focados em três eixos vitais."
-            />
-            <div className="space-y-8">
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-white shadow-xl rounded-2xl flex items-center justify-center shrink-0 text-blue-600">
-                  <Activity size={28} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-xl mb-2">Performance & SEO</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">Páginas ultra-rápidas otimizadas para o Google, garantindo que seu cliente te encontre e tenha uma experiência fluida.</p>
-                </div>
+    {/* Sections included in DevAutoView flow */}
+    <DevelopmentProcessSection />
+    <ImpactScenariosSection />
+    <CasesSection />
+    <QuoteSection />
+    <FinalCTASection setView={setView} />
+  </div >
+);
+
+{/* Como Funciona o Desenvolvimento */ }
+const DevelopmentProcessSection = () => (
+  <section id="process" className="py-24 bg-slate-50 border-y border-slate-100">
+    <div className="max-w-7xl mx-auto px-6">
+      <SectionHeading
+        badge="Nossa Metodologia"
+        title="O caminho para sua nova Presença Digital"
+        subtitle="Um fluxo transparente e rigoroso para garantir que o resultado final supere suas expectativas e objetivos comerciais."
+        centered
+      />
+      <DevelopmentProcess />
+    </div>
+  </section>
+);
+
+{/* Cenários Práticos */ }
+const ImpactScenariosSection = () => (
+  <section className="py-24 bg-white">
+    <div className="max-w-7xl mx-auto px-6">
+      <SectionHeading
+        badge="Foco em Resultado"
+        title="Situações reais, soluções estratégicas."
+        subtitle="Identificamos onde seu negócio está travado digitalmente e como um site profissional resolve o problema."
+      />
+      <ImpactScenarios />
+    </div>
+  </section>
+);
+
+{/* Cases e Projetos */ }
+const CasesSection = () => (
+  <section className="py-24 bg-slate-50 border-y border-slate-100">
+    <div className="max-w-7xl mx-auto px-6">
+      <SectionHeading
+        badge="Portfolio"
+        title="Casos de Sucesso"
+        subtitle="Conheça alguns dos projetos que transformaram a operação digital de nossos clientes."
+      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {CASE_STUDIES.filter(c => c.pillar === BusinessPillar.DEV_AUTO).map(c => (
+          <CaseStudyHighlight key={c.id} item={c} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+{/* Quote Form Section */ }
+const QuoteSection = () => (
+  <section className="py-24 bg-slate-900 relative overflow-hidden">
+    <div className="absolute top-0 left-0 w-full h-full bg-blue-600/5 blur-3xl rounded-full"></div>
+    <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Próximo Passo</span>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">Vamos construir <br /> algo grande?</h2>
+          <p className="text-xl text-slate-400 mb-12">Dê o primeiro passo para profissionalizar sua presença digital e escalar seus resultados com tecnologia de ponta.</p>
+
+          <div className="space-y-6">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-500"><Zap size={20} /></div>
+              <div>
+                <h5 className="font-bold text-white">Velocidade de Entrega</h5>
+                <p className="text-sm text-slate-500">Projetos estruturados para lançamento ágil sem perda de qualidade.</p>
               </div>
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-white shadow-xl rounded-2xl flex items-center justify-center shrink-0 text-indigo-600">
-                  <Workflow size={28} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-xl mb-2">Ecossistema Conectado</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">Seu site não é uma ilha. Ele nasce integrado ao seu CRM, WhatsApp e automações de marketing.</p>
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="w-14 h-14 bg-white shadow-xl rounded-2xl flex items-center justify-center shrink-0 text-emerald-600">
-                  <ShieldCheck size={28} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-xl mb-2">Tecnologia Premium</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">Utilizamos Next.js e React para garantir segurança, escalabilidade e o que há de mais moderno na web mundial.</p>
-                </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-500"><GlobeLock size={20} /></div>
+              <div>
+                <h5 className="font-bold text-white">Segurança Total</h5>
+                <p className="text-sm text-slate-500">Blindagem contra ataques e conformidade total com a LGPD.</p>
               </div>
             </div>
           </div>
-          <div className="relative">
-            <AutomationFlowPreview />
-            <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 max-w-xs hidden md:block">
-              <div className="flex items-center gap-3 mb-2">
-                <Star className="text-amber-500 fill-amber-500" size={16} />
-                <span className="font-bold text-xs uppercase text-slate-400">Impacto Mensurável</span>
-              </div>
-              <p className="text-sm font-bold text-slate-900">"Após a implementação do novo portal integrado, nossa taxa de conversão subiu de 2% para 18% no primeiro trimestre."</p>
-            </div>
-          </div>
+        </div>
+        <div className="bg-white p-2 rounded-[2.5rem] shadow-2xl">
+          <MultiStepDevQuoteForm />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+);
 
-    {/* QUIZ DE DIAGNÓSTICO DIGITAL */}
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Avaliação Estratégica</span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Diagnóstico da Presença Digital</h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">Entenda como sua empresa está posicionada online e descubra oportunidades de crescimento e automação.</p>
-        </div>
-        <DevDiagnosticQuiz />
+{/* Final CTA */ }
+const FinalCTASection = ({ setView }: { setView: (v: string) => void }) => (
+  <section className="py-24 bg-white text-center">
+    <div className="max-w-4xl mx-auto px-6">
+      <SectionHeading
+        centered
+        badge="Inovação e escala"
+        title="Pronto para modernizar sua Presença Digital?"
+        subtitle="Não aceite menos que a excelência técnica. Transforme seu site em uma máquina de captação e autoridade."
+      />
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <Button size="lg" onClick={() => setView('contato')}>Falar com Especialista em Projetos</Button>
+        <Button variant="outline" size="lg" onClick={() => window.scrollTo(0, 0)}>Voltar ao Topo</Button>
       </div>
-    </section>
-
-    {/* Como Funciona o Desenvolvimento */}
-    <section className="py-24 bg-slate-50 border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          badge="Nossa Metodologia"
-          title="O caminho para sua nova Presença Digital"
-          subtitle="Um fluxo transparente e rigoroso para garantir que o resultado final supere suas expectativas e objetivos comerciais."
-          centered
-        />
-        <DevelopmentProcess />
-      </div>
-    </section>
-
-    {/* Cenários Práticos */}
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          badge="Foco em Resultado"
-          title="Situações reais, soluções estratégicas."
-          subtitle="Identificamos onde seu negócio está travado digitalmente e como um site profissional resolve o problema."
-        />
-        <ImpactScenarios />
-      </div>
-    </section>
-
-    {/* Cases e Projetos */}
-    <section className="py-24 bg-slate-50 border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          badge="Portfolio"
-          title="Casos de Sucesso"
-          subtitle="Conheça alguns dos projetos que transformaram a operação digital de nossos clientes."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {CASE_STUDIES.filter(c => c.pillar === BusinessPillar.DEV_AUTO).map(c => (
-            <CaseStudyHighlight key={c.id} item={c} />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Quote Form Section */}
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-blue-600/5 blur-3xl rounded-full"></div>
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Próximo Passo</span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">Vamos construir <br /> algo grande?</h2>
-            <p className="text-xl text-slate-400 mb-12">Dê o primeiro passo para profissionalizar sua presença digital e escalar seus resultados com tecnologia de ponta.</p>
-
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-500"><Zap size={20} /></div>
-                <div>
-                  <h5 className="font-bold text-white">Velocidade de Entrega</h5>
-                  <p className="text-sm text-slate-500">Projetos estruturados para lançamento ágil sem perda de qualidade.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-500"><GlobeLock size={20} /></div>
-                <div>
-                  <h5 className="font-bold text-white">Segurança Total</h5>
-                  <p className="text-sm text-slate-500">Blindagem contra ataques e conformidade total com a LGPD.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-2 rounded-[2.5rem] shadow-2xl">
-            <MultiStepDevQuoteForm />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Final CTA */}
-    <section className="py-24 bg-white text-center">
-      <div className="max-w-4xl mx-auto px-6">
-        <SectionHeading
-          centered
-          badge="Inovação e escala"
-          title="Pronto para modernizar sua Presença Digital?"
-          subtitle="Não aceite menos que a excelência técnica. Transforme seu site em uma máquina de captação e autoridade."
-        />
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-          <Button size="lg" onClick={() => setView('contato')}>Falar com Especialista em Projetos</Button>
-          <Button variant="outline" size="lg" onClick={() => window.scrollTo(0, 0)}>Voltar ao Topo</Button>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
 );
 
 // --- VIEW: AI CONSULTING ---
 const AIConsultingView = ({ setView }: { setView: (v: string) => void }) => (
   <div className="animate-in slide-in-from-bottom-4 duration-700 bg-white">
     {/* Hero Section */}
-    <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-600/10 blur-[150px] rounded-full"></div>
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-              AI Strategy & Engineering
-            </span>
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
-              A Inteligência Artificial como sua <span className="text-emerald-500">vantagem competitiva.</span>
-            </h1>
-            <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
-              Não implementamos apenas bots. Redesenhamos processos para que sua empresa utilize a IA de forma segura, ética e altamente lucrativa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 border-none" onClick={() => setView('contato')}>Quero Consultoria em IA</Button>
-              <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('quiz-ia')?.scrollIntoView({ behavior: 'smooth' })}>Diagnosticar Maturidade</Button>
+    <GlowHero>
+      <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-600/10 blur-[150px] rounded-full"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="px-4 py-1.5 rounded-full bg-emerald-50/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                AI Strategy & Engineering
+              </span>
+              <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
+                A Inteligência Artificial como sua <span className="text-emerald-500">vantagem competitiva.</span>
+              </h1>
+              <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
+                Não implementamos apenas bots. Redesenhamos processos para que sua empresa utilize a IA de forma segura, ética e altamente lucrativa.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 border-none" onClick={() => setView('contato')}>Quero Consultoria em IA</Button>
+                <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('quiz-ia')?.scrollIntoView({ behavior: 'smooth' })}>Diagnosticar Maturidade</Button>
+              </div>
             </div>
-          </div>
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-emerald-500/20 blur-3xl -z-10 rounded-full"></div>
-            <img
-              src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800"
-              alt="Artificial Intelligence"
-              className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
-            />
-            <div className="absolute top-1/2 -left-8 -translate-y-1/2 bg-slate-900/90 backdrop-blur p-4 rounded-2xl border border-slate-700 shadow-2xl z-20">
-              <Activity className="text-emerald-500 h-8 w-8 mb-2" />
-              <div className="space-y-1">
-                <div className="h-1 w-12 bg-slate-700 rounded"></div>
-                <div className="h-1 w-8 bg-slate-700 rounded"></div>
+            <div className="relative hidden lg:block">
+              <div className="absolute inset-0 bg-emerald-500/20 blur-3xl -z-10 rounded-full"></div>
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800"
+                alt="Artificial Intelligence"
+                className="rounded-3xl shadow-2xl border border-slate-700/50 relative z-10 hover:scale-[1.02] transition-transform duration-500"
+              />
+              <div className="absolute top-1/2 -left-8 -translate-y-1/2 bg-slate-900/90 backdrop-blur p-4 rounded-2xl border border-slate-700 shadow-2xl z-20">
+                <Activity className="text-emerald-500 h-8 w-8 mb-2" />
+                <div className="space-y-1">
+                  <div className="h-1 w-12 bg-slate-700 rounded"></div>
+                  <div className="h-1 w-8 bg-slate-700 rounded"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </GlowHero>
 
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -830,8 +781,16 @@ const App: React.FC = () => {
     switch (currentView) {
       case 'home': return <HomeView setView={setCurrentView} />;
       case BusinessPillar.IT_CYBER: return <ITCyberView setView={setCurrentView} />;
-      case BusinessPillar.DEV_AUTO: return <DevAutoView setView={setCurrentView} />;
-      case BusinessPillar.AI_CONSULTING: return <AIConsultingView setView={setCurrentView} />;
+      case BusinessPillar.DEV_AUTO: return (
+        <>
+          <DevAutoView setView={setCurrentView} />
+          <DevelopmentProcessSection />
+          <ImpactScenariosSection />
+          <CasesSection />
+          <QuoteSection />
+          <FinalCTASection setView={setCurrentView} />
+        </>
+      );
       case BusinessPillar.AI_CONSULTING: return <AIConsultingView setView={setCurrentView} />;
       case BusinessPillar.INFRA_TECH: return <InfraView setView={setCurrentView} />;
       case BusinessPillar.TECHNICAL_SUPPORT: return <TechSupportView setView={setCurrentView} />;
@@ -897,6 +856,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <ScrollProgressBar />
       <Navbar currentView={currentView} setView={setCurrentView} />
       <main className="min-h-[70vh]">
         {renderView()}

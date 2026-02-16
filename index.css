@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --motion-ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --color-primary: #0f89ae;
+  --color-accent: #5cb4da;
+}
+
+/* Base Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+   ----------------------------------------
+   KEYFRAME ANIMATIONS
+   ----------------------------------------
+*/
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s var(--motion-ease-out) forwards;
+}
+
+/* Fade In Scale */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s var(--motion-ease-out) forwards;
+}
+
+/* 
+   ----------------------------------------
+   UTILITY CLASSES FOR MOTION
+   ----------------------------------------
+*/
+
+/* Card Premium Hover */
+.card-hover-premium {
+  transition: all 0.35s var(--motion-ease-out);
+  backface-visibility: hidden;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+.card-hover-premium:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Arrow Animation on Hover */
+.group:hover .arrow-animate {
+  transform: translateX(4px);
+}
+
+.arrow-animate {
+  transition: transform 0.3s var(--motion-ease-out);
+}
+
+/* Magnetic Button Gradient */
+.btn-magnetic-gradient {
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-out;
+}
+
+.btn-magnetic-gradient:hover {
+  background-position: right center;
+}
+
+/* 
+   ----------------------------------------
+   ACCESSIBILITY: Prefers Reduced Motion
+   ----------------------------------------
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable specific motion effects */
+  .motion-disabled-on-reduce {
+    display: none !important;
+  }
+  
+  .transform-disabled-on-reduce {
+    transform: none !important;
+  }
+}
+
+/* 
+   ----------------------------------------
+   CUSTOM SCROLLBAR
+   ----------------------------------------
+*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
