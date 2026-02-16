@@ -1,5 +1,5 @@
-// Motion Design Tokens
-// Central source of truth for all animation values to ensure consistency
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export const MOTION = {
     // Durations (ms)
@@ -35,6 +35,6 @@ export const MOTION = {
 };
 
 // Utility to combine classes
-export const cn = (...classes: (string | undefined | null | false)[]) => {
-    return classes.filter(Boolean).join(' ');
-};
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
