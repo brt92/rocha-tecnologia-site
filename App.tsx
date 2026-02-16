@@ -44,6 +44,7 @@ import {
   Tooltip,
   MagneticButton
 } from './components/motion';
+import { ServiceModal } from './components/motion/ServiceModal';
 
 // --- SHARED COMPONENTS ---
 const SectionHeading = ({ badge, title, subtitle, centered = false }: { badge: string, title: string, subtitle: string, centered?: boolean }) => (
@@ -176,15 +177,204 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
 
 // --- VIEW: TI & CYBER ---
 const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
+  const [selectedModule, setSelectedModule] = useState<any>(null);
+
   const itModules = [
-    { id: '01', title: 'Gestão de Servidores', desc: 'Active Directory, GPOs e permissionamento granular de arquivos.', icon: <Server size={20} />, color: 'blue' },
-    { id: '02', title: 'Proteção de Rede', desc: <><Tooltip term="Firewall NGFW" definition="Next-Generation Firewall: Proteção avançada com inspeção de pacotes e controle de aplicações." />, WebFilter, <Tooltip term="IPS/IDS" definition="Intrusion Prevention/Detection System: Monitoramento ativo contra invasões em tempo real." /> e VPN segura para acesso remoto.</>, icon: <ShieldAlert size={20} />, color: 'red' },
-    { id: '03', title: 'Infra de Rede', desc: 'Switches gerenciados, segmentação por VLAN e Wi-Fi de alta densidade.', icon: <Network size={20} />, color: 'indigo' },
-    { id: '04', title: 'Gestão de Ativos', desc: 'Inventário, preventiva e onboarding/offboarding seguro de hardware.', icon: <Binary size={20} />, color: 'slate' },
-    { id: '05', title: 'Backup & Continuidade', desc: 'Estratégia 3-2-1 com monitoramento diário e teste de restore.', icon: <HardDrive size={20} />, color: 'green' },
-    { id: '06', title: 'Governança & Decisão', desc: 'Assumimos a responsabilidade técnica e o ROI em investimentos.', icon: <Gauge size={20} />, color: 'amber' },
-    { id: '07', title: 'Estratégia & Futuro', desc: 'Roadmap de 24 meses alinhando tecnologia e crescimento de escala.', icon: <Rocket size={20} />, color: 'purple' },
-    { id: '08', title: 'Suporte Operacional', desc: 'Atendimento humanizado remoto e presencial focado em alta produtividade.', icon: <Headphones size={20} />, color: 'slate' }
+    {
+      id: '01',
+      title: 'Gestão de Servidores',
+      desc: 'Active Directory, GPOs e permissionamento granular de arquivos.',
+      icon: <Server size={20} />,
+      color: 'blue',
+      fullDescription: 'Administração completa de servidores corporativos para garantir estabilidade, controle de acessos e continuidade operacional.',
+      practicalActions: [
+        'Implementação e gestão de Active Directory',
+        'Controle de usuários e permissões',
+        'Políticas de segurança (GPOs)',
+        'Estruturação de arquivos e pastas corporativas',
+        'Monitoramento do ambiente'
+      ],
+      howItWorks: [
+        'Organização do ambiente atual',
+        'Padronização de acessos',
+        'Controle de permissões',
+        'Documentação e gestão contínua'
+      ],
+      results: [
+        'Mais controle',
+        'Mais segurança',
+        'Menos dependência de usuários técnicos',
+        'Estrutura escalável'
+      ]
+    },
+    {
+      id: '02',
+      title: 'Proteção de Rede',
+      desc: 'Firewall NGFW, IPS/IDS, WebFilter e VPN segura para acesso remoto.',
+      icon: <ShieldAlert size={20} />,
+      color: 'red',
+      fullDescription: 'Implementação de camadas de segurança para proteger o ambiente contra acessos indevidos, ameaças e vazamentos.',
+      practicalActions: [
+        'Configuração de firewall corporativo',
+        'Controle de acesso remoto',
+        'Bloqueios inteligentes',
+        'Monitoramento de tráfego',
+        'Segurança perimetral'
+      ],
+      howItWorks: [
+        'Diagnóstico de vulnerabilidades',
+        'Implantação de regras',
+        'Monitoramento contínuo'
+      ],
+      results: [
+        'Redução de riscos',
+        'Controle de acesso',
+        'Proteção da operação'
+      ]
+    },
+    {
+      id: '03',
+      title: 'Infra de Rede',
+      desc: 'Switches gerenciados, segmentação por VLAN e Wi-Fi de alta densidade.',
+      icon: <Network size={20} />,
+      color: 'indigo',
+      fullDescription: 'Estruturação e organização da rede corporativa para estabilidade e performance.',
+      practicalActions: [
+        'Segmentação por VLAN',
+        'Configuração de switches',
+        'Wi-Fi corporativo',
+        'Organização física e lógica'
+      ],
+      howItWorks: [
+        'Mapeamento da infraestrutura física',
+        'Certificação de pontos de rede',
+        'Otimização de cobertura Wi-Fi'
+      ],
+      results: [
+        'Rede estável',
+        'Menos quedas',
+        'Mais performance'
+      ]
+    },
+    {
+      id: '04',
+      title: 'Gestão de Ativos',
+      desc: 'Inventário, preventiva e onboarding/offboarding seguro de hardware.',
+      icon: <Binary size={20} />,
+      color: 'slate',
+      fullDescription: 'Controle e organização do parque tecnológico.',
+      practicalActions: [
+        'Inventário completo',
+        'Ciclo de vida de equipamentos',
+        'Onboarding/offboarding',
+        'Controle de substituição'
+      ],
+      howItWorks: [
+        'Rastreamento e etiquetagem',
+        'Monitoramento de garantia',
+        'Planejamento de renovação'
+      ],
+      results: [
+        'Visibilidade total',
+        'Planejamento financeiro',
+        'Padronização do parque'
+      ]
+    },
+    {
+      id: '05',
+      title: 'Backup & Continuidade',
+      desc: 'Estratégia 3-2-1 com monitoramento diário e teste de restore.',
+      icon: <HardDrive size={20} />,
+      color: 'green',
+      fullDescription: 'Proteção de dados e estratégia de recuperação de desastres.',
+      practicalActions: [
+        'Backup 3-2-1 (3 cópias, 2 mídias, 1 nuvem)',
+        'Testes periódicos de restore',
+        'Monitoramento diário',
+        'Políticas de retenção'
+      ],
+      howItWorks: [
+        'Instalação de agentes de backup',
+        'Configuração de rotinas automáticas',
+        'Validação de integridade dos dados'
+      ],
+      results: [
+        'Continuidade operacional',
+        'Segurança contra perda de dados',
+        'Conformidade com normas'
+      ]
+    },
+    {
+      id: '06',
+      title: 'Governança & Decisão',
+      desc: 'Assumimos a responsabilidade técnica e o ROI em investimentos.',
+      icon: <Gauge size={20} />,
+      color: 'amber',
+      fullDescription: 'Atuação estratégica na gestão tecnológica e tomada de decisão.',
+      practicalActions: [
+        'Planejamento tecnológico',
+        'Priorização de investimentos',
+        'Indicadores de performance',
+        'Acompanhamento de ROI'
+      ],
+      howItWorks: [
+        'Reuniões de alinhamento mensal',
+        'Análise de dados e métricas',
+        'Relatórios executivos'
+      ],
+      results: [
+        'Decisões baseadas em dados',
+        'TI alinhada ao negócio',
+        'Otimização de custos'
+      ]
+    },
+    {
+      id: '07',
+      title: 'Estratégia & Futuro',
+      desc: 'Roadmap de 24 meses alinhando tecnologia e crescimento de escala.',
+      icon: <Rocket size={20} />,
+      color: 'purple',
+      fullDescription: 'Planejamento de evolução tecnológica da empresa a longo prazo.',
+      practicalActions: [
+        'Roadmap de tecnologia',
+        'Projeção de crescimento',
+        'Planejamento de infraestrutura futura'
+      ],
+      howItWorks: [
+        'Imersão no modelo de negócio',
+        'Definição de metas tecnológicas',
+        'Revisão trimestral de objetivos'
+      ],
+      results: [
+        'Crescimento estruturado',
+        'Previsibilidade de investimentos',
+        'Inovação contínua'
+      ]
+    },
+    {
+      id: '08',
+      title: 'Suporte Operacional',
+      desc: 'Atendimento humanizado remoto e presencial focado em alta produtividade.',
+      icon: <Headphones size={20} />,
+      color: 'slate',
+      fullDescription: 'Atendimento técnico estruturado para manter a operação funcionando sem interrupções.',
+      practicalActions: [
+        'Suporte remoto ágil',
+        'Suporte presencial programado',
+        'Resolução de incidentes',
+        'Orientação de usuários'
+      ],
+      howItWorks: [
+        'Abertura de chamados via portal/app',
+        'Atendimento SLA definido',
+        'Base de conhecimento'
+      ],
+      results: [
+        'Maior produtividade',
+        'Redução de paradas',
+        'Satisfação do usuário'
+      ]
+    }
   ];
 
   const getColorClasses = (color: string) => {
@@ -200,7 +390,7 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
   };
 
   return (
-    <div className="animate-in slide-in-from-bottom-4 duration-700 bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <GlowHero>
         <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
@@ -282,13 +472,20 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
           <SectionHeading
             badge="Rocha IT Operating Model"
             title="Manual de Operação Integrada (8 Módulos)"
-            subtitle="Nossa prestação de serviço é dividida em módulos especialistas para eliminar pontos únicos de falha e garantir governança total."
+            subtitle="Nossa prestação de serviço é dividida em módulos especialistas. Clique em cada um para entender o método."
             centered
           />
 
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" columns={4}>
             {itModules.map((module) => (
-              <div key={module.id} className="bg-white p-6 rounded-[2rem] border border-slate-200 hover:border-blue-500 transition-all group shadow-sm hover:shadow-xl">
+              <div
+                key={module.id}
+                onClick={() => setSelectedModule(module)}
+                className="bg-white p-6 rounded-[2rem] border border-slate-200 hover:border-blue-500 transition-all group shadow-sm hover:shadow-xl cursor-pointer relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ArrowRight className="text-blue-500" size={20} />
+                </div>
                 <div className="flex justify-between items-start mb-4">
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${getColorClasses(module.color)}`}>
                     {module.icon}
@@ -297,6 +494,9 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
                 </div>
                 <h4 className="font-bold text-slate-900 mb-2 text-sm">{module.title}</h4>
                 <p className="text-[11px] text-slate-500 leading-relaxed mb-4">{module.desc}</p>
+                <div className="text-xs font-bold text-blue-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                  Ver detalhes +
+                </div>
               </div>
             ))}
           </StaggerGrid>
@@ -468,6 +668,16 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
           </div>
         </div>
       </section>
+
+      <ServiceModal
+        isOpen={!!selectedModule}
+        onClose={() => setSelectedModule(null)}
+        service={selectedModule}
+        onContact={() => {
+          setSelectedModule(null);
+          setView('contato');
+        }}
+      />
     </div>
   );
 };
