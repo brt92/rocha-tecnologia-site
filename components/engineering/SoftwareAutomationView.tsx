@@ -10,9 +10,6 @@ import {
     AutomationTree,
     IntegrationsDisplay
 } from './EngineeringComponents';
-import { SectionHeading } from '../../App'; // Reusing SectionHeading from App or defining a local one if not exported properly
-// Note: If SectionHeading is not exported from App, I will define a local version. 
-// However, based on previous file reads, it seemed local to App.tsx. I will assume for now I need to recreate a simple version or export it.
 
 // Local text components for modularity
 const EngineeringSectionHeading = ({ badge, title, subtitle, centered = false }: { badge: string, title: string, subtitle: string, centered?: boolean }) => (
