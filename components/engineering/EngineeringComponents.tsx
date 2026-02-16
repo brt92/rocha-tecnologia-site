@@ -11,6 +11,8 @@ import { Button } from '../ui/Button';
 export const EngineeringHeroPreview = () => (
     <div className="relative h-full min-h-[400px] w-full bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden group shadow-2xl">
         {/* Grid Background */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-slate-900/80"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.5)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
 
         {/* Animated Glow */}
@@ -81,7 +83,8 @@ export const SystemsGrid = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {systems.map((s, i) => (
-                <div key={i} className="group relative p-8 bg-slate-900 rounded-[2rem] border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div key={i} className="group relative p-8 bg-slate-900 rounded-[2rem] border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden">
+                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]"></div>
                     <div className={`w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-cyan-900/30 group-hover:text-cyan-400 transition-colors text-slate-400`}>
                         {s.icon}
@@ -104,8 +107,9 @@ export const AutomationTree = () => {
     ];
 
     return (
-        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200">
-            <h4 className="font-bold text-slate-900 mb-8 flex items-center gap-2">
+        <div className="relative p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558494949-efbeb6cb66aa?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center opacity-5"></div>
+            <h4 className="relative z-10 font-bold text-slate-900 mb-8 flex items-center gap-2">
                 <Workflow className="text-blue-600" /> Fluxo Automatizado
             </h4>
             <div className="space-y-6 relative">
