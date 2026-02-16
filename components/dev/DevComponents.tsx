@@ -8,53 +8,38 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
-export const AutomationFlowPreview = () => (
+export const DigitalPresenceHero = () => (
   <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-2xl relative overflow-hidden group">
-    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-indigo-400 to-blue-600"></div>
-    <h4 className="text-white font-bold mb-8 flex items-center gap-2">
-      <Workflow size={20} className="text-blue-500" /> Fluxo Inteligente: Site + Automação
-    </h4>
-    <div className="flex flex-col md:flex-row items-center gap-4 justify-between relative z-10">
-      <div className="flex flex-col items-center gap-3 p-4 bg-slate-800 rounded-2xl border border-slate-700 w-full md:w-32 transition-all group-hover:border-blue-500/50">
-        <Globe className="text-blue-400" />
-        <span className="text-[10px] text-slate-400 font-black uppercase">Novo Lead Site</span>
+    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-400 to-blue-600"></div>
+    <div className="relative z-10 flex flex-col items-center text-center">
+      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-600/20">
+        <Globe size={32} className="text-white" />
       </div>
-      <div className="text-slate-700 hidden md:block">
-        <ArrowRight />
-      </div>
-      <div className="flex flex-col items-center gap-3 p-4 bg-blue-600 rounded-2xl border border-blue-400 w-full md:w-32 shadow-lg shadow-blue-500/20">
-        <Layers className="text-white" />
-        <span className="text-[10px] text-white font-black uppercase">IA n8n Process</span>
-      </div>
-      <div className="text-slate-700 hidden md:block">
-        <ArrowRight />
-      </div>
-      <div className="flex flex-col items-center gap-3 p-4 bg-slate-800 rounded-2xl border border-slate-700 w-full md:w-32 transition-all group-hover:border-indigo-500/50">
-        <MessageSquare className="text-green-400" />
-        <span className="text-[10px] text-slate-400 font-black uppercase">CRM / WhatsApp</span>
-      </div>
+      <h4 className="text-white font-bold mb-4 text-xl">
+        Sua empresa no centro do digital
+      </h4>
+      <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+        Não basta ter um site. É preciso ter uma estratégia de posicionamento que transmita autoridade e gere negócios.
+      </p>
     </div>
-    <div className="mt-8 pt-6 border-t border-white/5 text-center">
-      <p className="text-xs text-slate-400 italic font-medium">Sincronização imediata entre sua presença digital e seu time comercial.</p>
-    </div>
+
+    {/* Decorative Elements */}
+    <div className="absolute top-1/2 left-0 w-full h-px bg-slate-800/50 -z-0"></div>
+    <div className="absolute bottom-0 right-0 p-32 bg-blue-600/10 blur-[80px] rounded-full"></div>
   </div>
 );
 
-export const SiteSolutionsGrid = () => {
-  const solutions = [
-    { title: 'Sites Institucionais', desc: 'Presença digital sólida com foco em autoridade e credibilidade.', icon: <Globe /> },
-    { title: 'Landing Pages', desc: 'Páginas de alta conversão focadas em campanhas e captação de leads.', icon: <Target /> },
-    { title: 'Sites Corporativos', desc: 'Estruturas complexas para empresas com múltiplos serviços e unidades.', icon: <Layout /> },
-    { title: 'Portais Internos', desc: 'Ambientes restritos para colaboradores, documentos e processos.', icon: <Users /> },
-    { title: 'Sistemas Web', desc: 'Aplicações sob medida com regras de negócio específicas.', icon: <Database /> },
-    { title: 'Sites Automatizados', desc: 'Integrados com n8n para processos automáticos pós-clique.', icon: <Workflow /> },
-    { title: 'Integração CRM', desc: 'Dados do site alimentando diretamente seu funil de vendas.', icon: <TrendingUp /> },
-    { title: 'Hub de WhatsApp', desc: 'Sites orientados ao contato imediato e triagem por bot.', icon: <MessageSquare /> }
+export const SiteCreationGrid = () => {
+  const services = [
+    { title: 'Sites Institucionais', desc: 'Sua sede digital oficial. Transmita credibilidade imediata para quem busca sua empresa.', icon: <Globe /> },
+    { title: 'Landing Pages', desc: 'Páginas focadas em uma única ação: converter visitantes em leads qualificados.', icon: <Target /> },
+    { title: 'Sites Comerciais', desc: 'Vitrines digitais para seus produtos e serviços, otimizadas para venda.', icon: <TrendingUp /> },
+    { title: 'Portais Corporativos', desc: 'Estruturas robustas para grandes empresas e organizações.', icon: <Layout /> }
   ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {solutions.map((s, i) => (
+      {services.map((s, i) => (
         <div key={i} className="p-8 rounded-[2rem] bg-white border border-slate-100 hover:border-blue-500 hover:shadow-xl transition-all duration-300 group">
           <div className="w-12 h-12 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
             {s.icon}
@@ -69,13 +54,12 @@ export const SiteSolutionsGrid = () => {
 
 export const DevelopmentProcess = () => {
   const steps = [
-    { t: 'Diagnóstico', d: 'Imersão no negócio para entender objetivos e público.', icon: <Search /> },
-    { t: 'Arquitetura', d: 'Planejamento de fluxo, SEO e jornada do usuário.', icon: <Layers /> },
-    { t: 'Design / UX', d: 'Criação de interface moderna, fluida e responsiva.', icon: <Laptop /> },
-    { t: 'Desenvolvimento', d: 'Codificação limpa em Next.js e TypeScript.', icon: <Code /> },
-    { t: 'Integrações', d: 'Conexão com CRM, WhatsApp e Automações.', icon: <Zap /> },
-    { t: 'Publicação', d: 'Deploy otimizado e indexação no Google.', icon: <Rocket /> },
-    { t: 'Evolução', d: 'Acompanhamento de métricas e melhorias contínuas.', icon: <Settings /> }
+    { t: 'Diagnóstico', d: 'Entendemos seu mercado, público e objetivos de negócio.', icon: <Search /> },
+    { t: 'Estratégia', d: 'Definição da arquitetura de informação e jornada do cliente.', icon: <Layers /> },
+    { t: 'UX / UI Design', d: 'Criação de layout exclusivo, moderno e focado na experiência.', icon: <Layout /> },
+    { t: 'Desenvolvimento', d: 'Construção técnica com código limpo e alta performance.', icon: <Code /> },
+    { t: 'Posicionamento', d: 'Otimização para buscadores (SEO) e presença digital.', icon: <Globe /> },
+    { t: 'Lançamento', d: 'Publicação oficial e garantia de funcionamento perfeito.', icon: <Rocket /> }
   ];
 
   return (
@@ -101,24 +85,24 @@ export const DevelopmentProcess = () => {
 export const ImpactScenarios = () => {
   const scenarios = [
     {
-      p: 'Empresa sem Site ou antigo',
-      s: 'A perda de credibilidade digital trava novos fechamentos.',
-      r: 'Desenvolvemos um portal moderno que transmite autoridade imediata.'
+      p: 'Empresa sem Site',
+      s: 'Clientes buscam no Google e nâo encontram, indo para a concorrência.',
+      r: 'Criação de identidade digital forte para existir no mercado.'
     },
     {
-      p: 'Dependência do Instagram',
-      s: 'Algoritmo instável e falta de controle sobre os dados dos leads.',
-      r: 'Criamos sua "casa própria" digital com captação direta de e-mails e WhatsApp.'
+      p: 'Site Antigo / Amador',
+      s: 'Visual ultrapassado passa imagem de empresa estagnada ou pouco profissional.',
+      r: 'Design moderno e premium que transmite autoridade imediata.'
     },
     {
-      p: 'Baixa Conversão de Leads',
-      s: 'Usuários entram mas não interagem com a marca.',
-      r: 'Landing Pages otimizadas com gatilhos mentais e UX orientado à venda.'
+      p: 'Baixo Posicionamento',
+      s: 'Sua marca não é vista como referência no setor.',
+      r: 'Estratégia de conteúdo e layout focada em elevar a percepção de valor.'
     },
     {
-      p: 'Desorganização de Contatos',
-      s: 'Leads chegam de várias fontes e se perdem no caminho.',
-      r: 'Integramos o site com seu CRM para fluxo automático de atendimento.'
+      p: 'Site que não vende',
+      s: 'Visitantes entram e saem sem entrar em contato.',
+      r: 'UX focado em conversão e jornada do cliente.'
     }
   ];
 
@@ -131,18 +115,18 @@ export const ImpactScenarios = () => {
               <AlertTriangle size={20} />
             </div>
             <div>
-              <span className="text-[10px] font-black uppercase text-slate-400">Desafio Atual</span>
+              <span className="text-[10px] font-black uppercase text-slate-400">Problema</span>
               <h5 className="font-bold text-slate-900">{sc.p}</h5>
               <p className="text-sm text-slate-500 mt-1">{sc.s}</p>
             </div>
           </div>
-          <div className="flex gap-4 items-start p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
-            <div className="w-10 h-10 bg-emerald-500 text-white rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+          <div className="flex gap-4 items-start p-4 bg-blue-50 rounded-2xl border border-blue-100">
+            <div className="w-10 h-10 bg-blue-500 text-white rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
               <CheckCircle2 size={20} />
             </div>
             <div>
-              <span className="text-[10px] font-black uppercase text-emerald-600">Solução Rocha Tech</span>
-              <p className="text-sm text-emerald-900 font-bold">{sc.r}</p>
+              <span className="text-[10px] font-black uppercase text-blue-600">Solução Digital</span>
+              <p className="text-sm text-blue-900 font-bold">{sc.r}</p>
             </div>
           </div>
         </div>

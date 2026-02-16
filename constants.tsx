@@ -9,10 +9,10 @@ export const PILLAR_DATA = {
     description: 'Gestão proativa e segurança multicamada para sua operação nunca parar.'
   },
   [BusinessPillar.DEV_AUTO]: {
-    title: 'Desenvolvimento & Automação',
-    subtitle: 'Software e Eficiência Digital',
+    title: 'Presença Digital & Design',
+    subtitle: 'Posicionamento e Autoridade Online',
     color: 'indigo',
-    description: 'Sistemas sob medida e automações que transformam processos manuais em escala.'
+    description: 'Sites de alta performance e identidade visual para destacar sua marca no mercado.'
   },
   [BusinessPillar.INFRA_TECH]: {
     title: 'Infraestrutura & Projetos',
@@ -50,18 +50,18 @@ export const SERVICES: Service[] = [
   {
     id: 'dev-1',
     pillar: BusinessPillar.DEV_AUTO,
-    title: 'Sistemas Web & ERP',
-    description: 'Plataformas customizadas para sua regra de negócio.',
-    icon: 'Terminal',
-    features: ['Next.js / Supabase', 'Dashboards Real-time', 'Multi-tenant']
+    title: 'Criação de Sites',
+    description: 'Institucionais, Landing Pages e Corporativos.',
+    icon: 'Globe',
+    features: ['Design Exclusivo', 'Alta Performance', 'SEO Otimizado']
   },
   {
     id: 'dev-2',
     pillar: BusinessPillar.DEV_AUTO,
-    title: 'WhatsApp & bots',
-    description: 'Multiatendimento e automação de vendas.',
-    icon: 'MessageSquare',
-    features: ['Integração API Oficial', 'Agentes de Triagem', 'Fluxos Complexos']
+    title: 'Design & Branding',
+    description: 'Identidade visual que transmite autoridade.',
+    icon: 'Layout',
+    features: ['UX/UI Design', 'Redesign de Marca', 'Material Digital']
   },
   // IA
   {
@@ -114,9 +114,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'case-2',
     pillar: BusinessPillar.DEV_AUTO,
-    title: 'Automação de Atendimento',
-    client: 'Rede de Clínicas',
-    result: '85% dos agendamentos feitos por IA.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800'
+    title: 'Redesign e Posicionamento',
+    client: 'Escritório de Advocacia',
+    result: 'Aumento de 300% na captação de leads qualificados.',
+    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800'
   }
 ];

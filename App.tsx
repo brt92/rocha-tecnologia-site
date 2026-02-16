@@ -12,9 +12,9 @@ import { ChatSidebar } from './components/chat/ChatSidebar';
 import { useTechAssistant } from './components/chat/useTechAssistant';
 import { MultiStepDevQuoteForm } from './components/dev/DevQuoteForm';
 import {
-  AutomationFlowPreview,
+  DigitalPresenceHero,
   CaseStudyHighlight,
-  SiteSolutionsGrid,
+  SiteCreationGrid,
   DevelopmentProcess,
   ImpactScenarios
 } from './components/dev/DevComponents';
@@ -683,8 +683,9 @@ const ITCyberView = ({ setView }: { setView: (v: string) => void }) => {
 };
 
 // --- VIEW: DEV & AUTOMATION ---
+// --- VIEW: DEV & DIGITAL PRESENCE ---
 const DevAutoView = ({ setView }: { setView: (v: string) => void }) => (
-  <div className="animate-in slide-in-from-bottom-4 duration-1000 bg-white">
+  <div className="animate-in slide-in-from-bottom-4 duration-700 bg-white">
     {/* Hero Section */}
     <GlowHero>
       <section className="pt-40 pb-24 bg-slate-900 text-white relative overflow-hidden">
@@ -692,41 +693,106 @@ const DevAutoView = ({ setView }: { setView: (v: string) => void }) => (
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
-                Engineering & Strategic Design
+              <span className="px-4 py-1.5 rounded-full bg-blue-50/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                Digital Presence & Web Design
               </span>
               <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
-                Sites profissionais que representam sua empresa e geram <span className="text-blue-500">oportunidades reais.</span>
+                Sua empresa precisa existir digitalmente <br />
+                <span className="text-blue-500">de forma profissional.</span>
               </h1>
               <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
-                Desenvolvimento estratégico, performance absoluta, SEO técnico e integração profunda com automações e sistemas legados.
+                Criamos sites, identidade visual e presença online para empresas que querem crescer e se posicionar com autoridade no mercado.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" onClick={() => setView('contato')}>Quero criar meu site</Button>
-                <Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}>Ver Processo</Button>
+                <MagneticButton><Button size="lg" onClick={() => setView('contato')}>Criar meu Site Profissional</Button></MagneticButton>
+                <MagneticButton><Button variant="outline" className="text-white border-slate-700" onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}>Ver Soluções</Button></MagneticButton>
               </div>
             </div>
             <div className="relative hidden lg:block">
-              <div className="border border-slate-700/50 bg-slate-800/50 rounded-3xl h-[400px] flex items-center justify-center">
-                <Layout className="text-slate-600" size={64} />
-              </div>
+              <DigitalPresenceHero />
             </div>
           </div>
         </div>
       </section>
     </GlowHero>
 
-    {/* Diagnóstico da Presença Digital */}
-    <div className="py-24 bg-white text-center">
-      <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Diagnóstico da Presença Digital</h2>
-      <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">Entenda como sua empresa está posicionada online e descubra oportunidades de crescimento e automação.</p>
-    </div>
-    <div className="max-w-7xl mx-auto px-6 pb-24">
-      <DevDiagnosticQuiz />
-    </div>
+    {/* Site Creation Services */}
+    <FadeInSection>
+      <section id="solutions" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading
+            badge="Criação de Sites"
+            title="Desenvolvimento Web Profissional"
+            subtitle="Não fazemos apenas sites bonitos. Criamos ferramentas de venda e credibilidade para o seu negócio."
+          />
+          <SiteCreationGrid />
+        </div>
+      </section>
+    </FadeInSection>
+
+    {/* Three Pillars of Digital Presence */}
+    <section className="py-24 bg-slate-50 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm">
+            <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Globe /></div>
+            <h3 className="text-xl font-bold mb-4">Presença Interativa</h3>
+            <p className="text-slate-500 text-sm leading-relaxed">Sites que engajam, convertem e funcionam perfeitamente em qualquer dispositivo (mobile-first).</p>
+          </div>
+          <div className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm">
+            <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Layout /></div>
+            <h3 className="text-xl font-bold mb-4">Design Premium</h3>
+            <p className="text-slate-500 text-sm leading-relaxed">Identidade visual alinhada com o porte da sua empresa para transmitir confiança imediata.</p>
+          </div>
+          <div className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm">
+            <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-lg mb-6"><Target /></div>
+            <h3 className="text-xl font-bold mb-4">Posicionamento</h3>
+            <p className="text-slate-500 text-sm leading-relaxed">Estratégias de SEO e conteúdo para que seu cliente ideal encontre você no Google.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     {/* Sections included in DevAutoView flow */}
     <DevelopmentProcessSection />
+
+    {/* Target Audience / Who is it for */}
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <SectionHeading
+              badge="Para quem é"
+              title="Quem precisa deste serviço?"
+              subtitle="Se sua empresa se encaixa em um desses cenários, nós podemos transformar seu resultado."
+            />
+            <ul className="space-y-6">
+              {[
+                "Empresas que ainda não possuem site oficial",
+                "Negócios com sites antigos, lentos ou não responsivos",
+                "Marcas que querem se posicionar como autoridade no setor",
+                "Profissionais liberais que precisam de credibilidade digital"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <CheckCircle2 className="text-blue-600 shrink-0" />
+                  <span className="text-slate-700 font-bold">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[2.5rem] rotate-3 opacity-20 transform scale-105"></div>
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+              alt="Digital Strategy"
+              className="rounded-[2.5rem] shadow-2xl relative z-10"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <ImpactScenariosSection />
     <CasesSection />
     <QuoteSection />
@@ -796,8 +862,8 @@ const QuoteSection = () => (
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-500"><Zap size={20} /></div>
               <div>
-                <h5 className="font-bold text-white">Velocidade de Entrega</h5>
-                <p className="text-sm text-slate-500">Projetos estruturados para lançamento ágil sem perda de qualidade.</p>
+                <h5 className="font-bold text-white">Velocidade de Lançamento</h5>
+                <p className="text-sm text-slate-500">Processo estruturado para colocar seu site no ar com agilidade.</p>
               </div>
             </div>
             <div className="flex gap-4">
