@@ -21,7 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
   const navLinks = [
     { name: 'Início', id: 'home' },
     { name: 'TI & Cyber', id: 'ti-cyberseguranca' },
-    { name: 'Dev & Automação', id: 'desenvolvimento-automacao' },
+    { name: 'Sites & Design', id: 'desenvolvimento-automacao' },
+    { name: 'Software & Eng.', id: 'software-engineering' },
     { name: 'Infra & Projetos', id: 'infraestrutura-tecnologia' },
     { name: 'Assistência Técnica', id: 'assistencia-tecnica' },
     { name: 'Consultoria IA', id: 'consultoria-ia' },

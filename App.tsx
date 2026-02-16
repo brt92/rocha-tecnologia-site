@@ -18,6 +18,7 @@ import {
   DevelopmentProcess,
   ImpactScenarios
 } from './components/dev/DevComponents';
+import { SoftwareAutomationView } from './components/engineering/SoftwareAutomationView';
 import { InfraView } from './components/infra/InfraView';
 import { TechSupportView } from './components/support/TechSupportView';
 import { SERVICES, PLANS, CASE_STUDIES, PILLAR_DATA } from './constants';
@@ -1067,6 +1068,7 @@ const App: React.FC = () => {
           <FinalCTASection setView={setCurrentView} />
         </>
       );
+      case 'software-engineering': return <SoftwareAutomationView setView={setCurrentView} />;
       case BusinessPillar.AI_CONSULTING: return <AIConsultingView setView={setCurrentView} />;
       case BusinessPillar.INFRA_TECH: return <InfraView setView={setCurrentView} />;
       case BusinessPillar.TECHNICAL_SUPPORT: return <TechSupportView setView={setCurrentView} />;
