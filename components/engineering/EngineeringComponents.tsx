@@ -3,8 +3,7 @@ import React from 'react';
 import {
     Database, Server, Workflow, Cpu, Code,
     Layers, Lock, Globe, Terminal, Network,
-    Settings, BarChart, Rocket, CheckCircle2,
-    ArrowRight, Activity, Zap
+    ArrowRight, Activity, Zap, CheckCircle
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
@@ -101,7 +100,7 @@ export const AutomationTree = () => {
         { label: 'Input Manual', icon: <FileText size={16} />, status: 'eliminated' },
         { label: 'Processamento IA', icon: <Cpu size={16} />, status: 'active' },
         { label: 'Integração API', icon: <Network size={16} />, status: 'active' },
-        { label: 'Resultado', icon: <CheckCircle2 size={16} />, status: 'success' },
+        { label: 'Resultado', icon: <CheckCircle size={16} />, status: 'success' },
     ];
 
     return (
@@ -146,7 +145,7 @@ export const AutomationTree = () => {
 
                 <div className="flex items-center gap-4 relative z-10">
                     <div className="w-10 h-10 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 shadow-lg shadow-emerald-500/20">
-                        <CheckCircle2 size={18} />
+                        <CheckCircle size={18} />
                     </div>
                     <div>
                         <p className="text-xs font-bold text-emerald-600 uppercase">Finalização</p>
