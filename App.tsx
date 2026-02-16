@@ -80,10 +80,9 @@ const HomeView = ({ setView }: { setView: (v: string) => void }) => {
   }, []);
 
   return (
-    <div className="animate-in fade-in duration-700 bg-white border-4 border-red-600 relative">
-      <div className="absolute top-0 left-0 bg-red-600 text-white font-bold px-4 py-1 z-50">VERSÃO DE DEBUG ATIVA - SE VOCÊ VÊ ISSO, O DEPLOY FUNCIONOU</div>
+    <div className="animate-in fade-in duration-700 bg-white">
       {/* 1. HERO - CHAT FIRST EXPERIENCE */}
-      <GlowHero className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-100" glowColor="rgba(16, 185, 129, 0.1)">
+      <GlowHero className="relative pt-32 pb-12 md:pt-40 md:pb-12 overflow-hidden bg-slate-50" glowColor="rgba(16, 185, 129, 0.1)">
         <section id="hero-chat-section">
           <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-slate-50"></div>
 

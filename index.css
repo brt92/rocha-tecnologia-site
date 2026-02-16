@@ -26,6 +26,7 @@ html {
     opacity: 0;
     transform: translate3d(0, 20px, 0);
   }
+
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -42,6 +43,7 @@ html {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -62,7 +64,8 @@ html {
 .card-hover-premium {
   transition: all 0.35s var(--motion-ease-out);
   backface-visibility: hidden;
-  transform: translateZ(0); /* GPU acceleration */
+  transform: translateZ(0);
+  /* GPU acceleration */
 }
 
 .card-hover-premium:hover {
@@ -94,6 +97,12 @@ html {
    ACCESSIBILITY: Prefers Reduced Motion
    ----------------------------------------
 */
+/* 
+   ----------------------------------------
+   ACCESSIBILITY: Prefers Reduced Motion (DISABLED FOR DEBUGGING)
+   ----------------------------------------
+*/
+/*
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -106,7 +115,6 @@ html {
     scroll-behavior: auto !important;
   }
   
-  /* Disable specific motion effects */
   .motion-disabled-on-reduce {
     display: none !important;
   }
@@ -115,6 +123,7 @@ html {
     transform: none !important;
   }
 }
+*/
 
 /* 
    ----------------------------------------
